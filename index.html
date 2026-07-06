@@ -15,25 +15,26 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-  <!-- Open Graph -->
+
+  <!-- Social Preview -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Олга Дукат — Онлайн курс за подготовка за раждане">
-  <meta property="og:description" content="Подгответе се спокойно и уверено за раждането. 57 видеоурока, над 17 часа практични знания.">
-  <meta property="og:image" content="https://olgadukat.bg/images/og-main.jpg">
+  <meta property="og:description" content="57 видеоурока, над 17 часа практични знания – от бременността до първите дни с бебето.">
+  <meta property="og:image" content="https://olgadukat.bg/images/og-main-new.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://olgadukat.bg/">
   <meta property="og:locale" content="bg_BG">
   <meta property="og:site_name" content="Олга Дукат">
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Олга Дукат — Онлайн курс за подготовка за раждане">
   <meta name="twitter:description" content="57 видеоурока, над 17 часа практични знания – от бременността до първите дни с бебето.">
-  <meta name="twitter:image" content="https://olgadukat.bg/images/og-main.jpg">
+  <meta name="twitter:image" content="https://olgadukat.bg/images/og-main-new.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&subset=cyrillic,latin&subset=cyrillic&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=de35f7a">
+  <link rel="stylesheet" href="styles.css?v=20260706a">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -72,14 +73,13 @@
       <span></span><span></span><span></span>
     </button>
     <div class="navbar__links" id="navLinks">
-      <a href="#about">За Олга</a>
-      <a href="#program">Курс</a>
-      <a href="/razhdane-s-men">Раждане с мен</a>
-      <a href="#book">Книги</a>
-      <a href="#testimonials">Отзиви</a>
-      <a href="#faq">FAQ</a>
+      <a href="/" class="active">Начало</a>
+      <a href="/#program">Курс</a>
+      <a href="/razhdane-s-nas">Раждане с нас</a>
+      <a href="/konsultatsii">Консултации</a>
+      <a href="/knigi">Книги</a>
       <div class="navbar__cta">
-        <a href="https://olga-dukat.teachable.com/purchase?product_id=6661942" class="btn btn--primary" target="_blank">Купи курса</a>
+        <a href="#" class="btn btn--primary" onclick="openContactModal();return false;">Свържете се</a>
       </div>
     </div>
   </div>
@@ -167,7 +167,7 @@
   <div class="container">
     <div class="about__grid">
       <div class="about__image" data-animate="fade-left">
-        <img src="images/olga-1.jpg" alt="Олга Дукат" class="about__photo">
+        <img src="images/olga-author-new.jpg" alt="Олга Дукат" class="about__photo">
       </div>
       <div class="about__content" data-animate="fade-right">
         <span class="badge badge--light">ЗА АВТОРА</span>
@@ -407,27 +407,27 @@
     <h2 class="section-title" style="color: var(--white); margin-bottom: 48px;">Книгите на Олга Дукат</h2>
     <div class="book-teaser__grid">
       <div class="book-teaser__cover" data-animate="fade-left">
-        <a href="/razhdane-s-lubov"><img src="images/book-cover-razhdane.jpg" alt="Книга Раждане с любов" class="book-teaser__img"></a>
+        <a href="/knigi#razhdane-s-lubov"><img src="images/book-cover-razhdane.jpg" alt="Книга Раждане с любов" class="book-teaser__img"></a>
       </div>
       <div class="book-teaser__content" data-animate="fade-right">
-        <a href="/razhdane-s-lubov" style="text-decoration: none; color: inherit;"><h3 class="section-title" style="font-size: 1.8rem;">Раждане с любов</h3></a>
+        <a href="/knigi#razhdane-s-lubov" style="text-decoration: none; color: inherit;"><h3 class="section-title" style="font-size: 1.8rem;">Раждане с любов</h3></a>
         <p class="book-teaser__text">Всичко, което трябва да знаете за раждането — събрано в една книга. Практични съвети, реални истории и професионален опит от стотици раждания.</p>
         <p class="book-teaser__price">20 € / 39.12 лв</p>
         <a href="https://buy.stripe.com/bJebJ01ET06jfIG3J22ZO02" class="btn btn--primary" target="_blank">Поръчай</a>
-        <a href="/razhdane-s-lubov" class="btn btn--white" style="margin-left: 12px;">Научи повече →</a>
+        <a href="/knigi#razhdane-s-lubov" class="btn btn--white" style="margin-left: 12px;">Научи повече →</a>
       </div>
     </div>
     <div class="book-teaser__grid" style="margin-top: 48px;">
       <div class="book-teaser__cover" data-animate="fade-left">
-        <a href="/vbac"><img src="images/vbac-cover.png" alt="VBAC — Раждане с любов" class="book-teaser__img"></a>
+        <a href="/knigi#vbac"><img src="images/vbac-cover.png" alt="VBAC — Раждане с любов" class="book-teaser__img"></a>
       </div>
       <div class="book-teaser__content" data-animate="fade-right">
-        <a href="/vbac" style="text-decoration: none; color: inherit;"><h3 class="section-title" style="font-size: 1.8rem;">VBAC — Раждане с любов</h3></a>
+        <a href="/knigi#vbac" style="text-decoration: none; color: inherit;"><h3 class="section-title" style="font-size: 1.8rem;">VBAC — Раждане с любов</h3></a>
         <p class="book-teaser__subtitle" style="font-style: italic; color: var(--accent-light, #C2B6C1); margin-bottom: 12px;">Вагинално раждане след секцио</p>
         <p class="book-teaser__text">Актуална информация за VBAC, базирана на последните научни изследвания. Развенчава митовете и дава подкрепа на жените, които искат вагинално раждане след секцио.</p>
         <p class="book-teaser__price">17.90 € / 35.01 лв</p>
         <a href="https://buy.stripe.com/fZu5kC83haKXeECfrK2ZO01" class="btn btn--primary" target="_blank">Поръчай</a>
-        <a href="/vbac" class="btn btn--white" style="margin-left: 12px;">Научи повече →</a>
+        <a href="/knigi#vbac" class="btn btn--white" style="margin-left: 12px;">Научи повече →</a>
       </div>
     </div>
   </div>
@@ -455,6 +455,11 @@
         <div class="testimonial-card__stars">★★★★★</div>
         <p class="testimonial-card__text">„Курсът на Олга ми даде пълно спокойствие, че разбирам какво ми предстои по време на един от най-важните моменти в целия ми живот. Много от решенията, които с мъжа ми взехме и ми помогнаха да имам леко раждане се дължат на курса. Информацията е изключително добре структурирана и лесна за намиране. Мъжът ми също много високо оцени ясните насоки и информация. Още от родилното та до ден днешен си ползвам модула за родителство, който се оказа невероятно ценен и пълен с практически видеа и насоки. Препоръчвам всичките модули горещо на всички, които искат да постигнат мечтаното и леко раждане и родителство след това."</p>
         <p class="testimonial-card__author">— Виолетка и Краси</p>
+      </div>
+      <div class="testimonial-card" data-animate="fade-up">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">„Закупих си пълния курс с всичките модули, свързани с бременността, раждането, първи грижи и го гледам с голямо удоволствие! Искам само да споделя как още с първото дете мечтаех да раждам естествено, с подкрепа и с присъствие на партньора си, в уютна среда… но за съжаление нямах подкрепа за това. А сега като гледам лекциите и не мога да повярвам, че сега съм наистина поела по този път и точно с вас! То беше естествено раждане, но с особености и в много неестествена обстановка, неестествени за мен насоки за напъни.. не усетих пространството да се свържа с тялото си. А сега съм спокойна че съм в прекрасни ръце, благодаря!”</p>
+        <p class="testimonial-card__author">— Мария</p>
       </div>
     </div>
   </div>
@@ -517,12 +522,11 @@
 <footer class="footer">
   <div class="container">
     <div class="footer__links">
-      <a href="#about">За Олга</a>
-      <a href="#program">Курс</a>
-      <a href="/razhdane-s-men">Раждане с мен</a>
-      <a href="#book">Книги</a>
-      <a href="#testimonials">Отзиви</a>
-      <a href="#faq">FAQ</a>
+      <a href="/">Начало</a>
+      <a href="/#program">Курс</a>
+      <a href="/razhdane-s-nas">Раждане с нас</a>
+      <a href="/konsultatsii">Консултации</a>
+      <a href="/knigi">Книги</a>
     </div>
     <div class="footer__social">
       <a href="https://www.olgadukat.com/" target="_blank" title="Блог">
@@ -542,7 +546,57 @@
   </div>
 </footer>
 
-<script>
+<div id="contactModal" class="contact-modal" onclick="if(event.target===this)closeContactModal()">
+  <div class="contact-modal__box contact-modal__box--wide">
+    <button class="contact-modal__close" onclick="closeContactModal()" aria-label="Затвори">&times;</button>
+    <h3>Свържете се с нас</h3>
+    <div class="contact-list">
+      <a href="mailto:olga.dukat.midwife@gmail.com" class="contact-row">
+        <span class="contact-row__icon contact-row__icon--mail" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+        <span class="contact-row__text">olga.dukat.midwife@gmail.com</span>
+      </a>
+      <a href="https://www.instagram.com/olgadukat/" target="_blank" class="contact-row">
+        <span class="contact-row__icon contact-row__icon--svg" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C16.67.014 16.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></span>
+        <span class="contact-row__text">instagram.com/olgadukat</span>
+      </a>
+      <a href="https://www.facebook.com/olga.dukat/" target="_blank" class="contact-row">
+        <span class="contact-row__icon contact-row__icon--facebook">f</span>
+        <span class="contact-row__text">facebook.com/olga.dukat</span>
+      </a>
+      <button type="button" class="contact-row contact-row--button" data-phone="+359 89 999 1264" onclick="copyPhoneNumber(this)" aria-label="Копирай телефона">
+        <span class="contact-row__icon contact-row__icon--phone" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <span class="contact-row__text">+359 89 999 1264</span>
+      </button>
+    </div>
+  </div>
+</div><script>
+function openContactModal() { document.getElementById('contactModal').classList.add('active'); }
+function closeContactModal() { document.getElementById('contactModal').classList.remove('active'); }
+function copyPhoneNumber(button) {
+  const phone = button.dataset.phone;
+  const text = button.querySelector('.contact-row__text');
+  const original = text.textContent;
+  const showCopied = () => {
+    text.textContent = 'Копирано: ' + phone;
+    window.setTimeout(() => { text.textContent = original; }, 1600);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(phone).then(showCopied, () => fallbackCopyPhone(phone, showCopied));
+  } else {
+    fallbackCopyPhone(phone, showCopied);
+  }
+}
+function fallbackCopyPhone(phone, done) {
+  const input = document.createElement('input');
+  input.value = phone;
+  input.style.position = 'fixed';
+  input.style.opacity = '0';
+  document.body.appendChild(input);
+  input.select();
+  document.execCommand('copy');
+  input.remove();
+  done();
+}
 // Mobile nav toggle
 const toggle = document.getElementById('navToggle');
 const links = document.getElementById('navLinks');
