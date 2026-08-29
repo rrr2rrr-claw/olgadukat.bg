@@ -3,26 +3,58 @@ course:
     description: "Самостоятелен модул от курса."
     price_eur: "40"
     price_bgn: "78.23"
+    note: "5 видеоурока + материали"
+    features:
+      - "Протичане на бременността"
+      - "Хранене и активност"
+      - "Тазово дъно"
+      - "Гимнастика с фитбол"
+    button: "Купи модул"
     purchase_url: "https://olga-dukat.teachable.com/purchase?product_id=6661935"
     featured: false
+    label: ""
   - title: "Целият курс"
     description: "57 видеоурока, 4 модула, над 17 часа практични знания."
     price_eur: "190"
     price_bgn: "371.61"
+    note: "Пълен достъп · 57 урока · Бонус материали"
+    features:
+      - "Всичките 3 модула"
+      - "57 видеоурока"
+      - "Неограничен достъп"
+      - "Бонус материали"
+    button: "Купи целия курс"
     purchase_url: "https://olga-dukat.teachable.com/purchase?product_id=6661942"
     featured: true
+    label: "НАЙ-ПОПУЛЯРЕН"
   - title: "Модул Раждане"
     description: "Самостоятелен модул от курса."
     price_eur: "120"
     price_bgn: "234.70"
+    note: "30 видеоурока"
+    features:
+      - "Всички етапи на раждането"
+      - "Дишане и пози"
+      - "Обезболяване"
+      - "Ролята на бащата"
+    button: "Купи модул"
     purchase_url: "https://olga-dukat.teachable.com/purchase?product_id=6661936"
     featured: false
+    label: ""
   - title: "Модул Родителство"
     description: "Самостоятелен модул от курса."
     price_eur: "90"
     price_bgn: "176.02"
+    note: "20 видеоурока"
+    features:
+      - "Кърмене и хранене"
+      - "Сън и режим"
+      - "Грижа за бебето"
+      - "Възстановяване след раждане"
+    button: "Купи модул"
     purchase_url: "https://olga-dukat.teachable.com/purchase?product_id=6661941"
     featured: false
+    label: ""
 
 books:
   - title: "Раждане с любов"

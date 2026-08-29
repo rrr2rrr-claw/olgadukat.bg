@@ -90,6 +90,19 @@ content:
                 label: Price BGN
                 type: string
                 required: true
+              - name: note
+                label: Card note
+                type: string
+              - name: features
+                label: Features
+                type: string
+                list: true
+              - name: button
+                label: Button label
+                type: string
+              - name: label
+                label: Card label
+                type: string
               - name: purchase_url
                 label: Purchase URL
                 type: string
@@ -185,6 +198,22 @@ content:
               - name: image
                 label: Image
                 type: image
+              - name: primary_button
+                label: Primary button
+                type: string
+              - name: secondary_button
+                label: Secondary button
+                type: string
+          - name: for_whom_title
+            label: For whom title
+            type: object
+            fields:
+              - name: badge
+                label: Badge
+                type: string
+              - name: title
+                label: Title
+                type: string
           - name: for_whom
             label: For whom cards
             type: object
@@ -201,6 +230,154 @@ content:
                 label: Text
                 type: text
                 required: true
+          - name: about
+            label: About Olga
+            type: object
+            fields:
+              - name: badge
+                label: Badge
+                type: string
+              - name: title
+                label: Title
+                type: string
+              - name: name
+                label: Name
+                type: string
+              - name: text
+                label: Text after name
+                type: text
+              - name: image
+                label: Image
+                type: image
+              - name: button
+                label: Button
+                type: string
+              - name: qualifications
+                label: Qualifications
+                type: string
+                list: true
+          - name: program
+            label: Course program
+            type: object
+            fields:
+              - name: badge
+                label: Badge
+                type: string
+              - name: title
+                label: Title
+                type: string
+              - name: subtitle
+                label: Subtitle
+                type: string
+              - name: description
+                label: Description
+                type: text
+              - name: modules
+                label: Modules
+                type: object
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{number}: {title}"
+                fields:
+                  - name: number
+                    label: Number
+                    type: string
+                  - name: title
+                    label: Title
+                    type: string
+                  - name: count
+                    label: Episode count
+                    type: string
+                  - name: episodes
+                    label: Episodes
+                    type: string
+                    list: true
+              - name: bonus_title
+                label: Bonus title
+                type: string
+              - name: bonus_items
+                label: Bonus items
+                type: string
+                list: true
+          - name: quote
+            label: Quote
+            type: object
+            fields:
+              - name: text
+                label: Text
+                type: text
+              - name: author
+                label: Author
+                type: string
+          - name: pricing
+            label: Pricing section text
+            type: object
+            fields:
+              - name: badge
+                label: Badge
+                type: string
+              - name: title
+                label: Title
+                type: string
+              - name: special
+                label: Special note HTML
+                type: text
+          - name: book_teaser
+            label: Books section
+            type: object
+            fields:
+              - name: badge
+                label: Badge
+                type: string
+              - name: title
+                label: Title
+                type: string
+              - name: books
+                label: Book cards
+                type: object
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{title}"
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                  - name: subtitle
+                    label: Subtitle
+                    type: string
+                  - name: text
+                    label: Text
+                    type: text
+                  - name: price
+                    label: Price
+                    type: string
+                  - name: image
+                    label: Image
+                    type: image
+                  - name: detail_url
+                    label: Detail URL
+                    type: string
+                  - name: purchase_url
+                    label: Purchase URL
+                    type: string
+                  - name: buy_button
+                    label: Buy button
+                    type: string
+                  - name: detail_button
+                    label: Detail button
+                    type: string
+          - name: testimonials_title
+            label: Testimonials title
+            type: object
+            fields:
+              - name: badge
+                label: Badge
+                type: string
+              - name: title
+                label: Title
+                type: string
           - name: faq
             label: FAQ
             type: object
@@ -217,6 +394,16 @@ content:
                 label: Answer
                 type: text
                 required: true
+          - name: faq_title
+            label: FAQ title
+            type: object
+            fields:
+              - name: badge
+                label: Badge
+                type: string
+              - name: title
+                label: Title
+                type: string
           - name: testimonials
             label: Testimonials
             type: object
@@ -229,10 +416,26 @@ content:
                 label: Name
                 type: string
                 required: true
+              - name: stars
+                label: Stars
+                type: string
               - name: text
                 label: Text
                 type: text
                 required: true
+          - name: final_cta
+            label: Final CTA
+            type: object
+            fields:
+              - name: title
+                label: Title
+                type: string
+              - name: subtitle
+                label: Subtitle
+                type: string
+              - name: button
+                label: Button
+                type: string
 
   - name: html_pages
     label: HTML pages

@@ -9,6 +9,7 @@ Pages CMS reads `.pages.yml` from this repository.
 - Structured editable data lives in `data/*.yml`.
 - Images are uploaded to `images/`.
 - Current live pages are static HTML files in the repository root.
-- Until the HTML is migrated to templates, real page changes should be made in the `HTML pages` section of Pages CMS or directly in the HTML files.
+- Homepage text is editable in `Homepage content` and `Pricing`; GitHub Actions regenerates `index.html` after those files change.
+- Other pages can still be edited in the `HTML pages` section until they are migrated to structured fields too.
 
 Do not commit secrets, private notes, credentials, or unpublished sensitive material here.
