@@ -1,0 +1,265 @@
+media:
+  - name: images
+    label: Images
+    input: images
+    output: /images
+    rename: safe
+    extensions: [jpg, jpeg, png, webp, svg]
+
+content:
+  - name: quick_content
+    label: Quick content
+    type: group
+    items:
+      - name: site_settings
+        label: Site settings
+        type: file
+        path: data/site.yml
+        format: yaml
+        fields:
+          - name: title
+            label: Site title
+            type: string
+            required: true
+          - name: description
+            label: Meta description
+            type: text
+            required: true
+          - name: domain
+            label: Domain
+            type: string
+            required: true
+          - name: contact
+            label: Contact
+            type: object
+            fields:
+              - name: email
+                label: Email
+                type: string
+                required: true
+              - name: phone
+                label: Phone
+                type: string
+                required: true
+              - name: blog
+                label: Blog URL
+                type: string
+              - name: facebook
+                label: Facebook URL
+                type: string
+              - name: instagram
+                label: Instagram URL
+                type: string
+              - name: tiktok
+                label: TikTok URL
+                type: string
+          - name: analytics
+            label: Analytics
+            type: object
+            fields:
+              - name: umami_website_id
+                label: Umami website ID
+                type: string
+
+      - name: pricing
+        label: Pricing
+        type: file
+        path: data/pricing.yml
+        format: yaml
+        fields:
+          - name: course
+            label: Course products
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title} - {price_eur} EUR"
+            fields:
+              - name: title
+                label: Title
+                type: string
+                required: true
+              - name: description
+                label: Description
+                type: text
+              - name: price_eur
+                label: Price EUR
+                type: string
+                required: true
+              - name: price_bgn
+                label: Price BGN
+                type: string
+                required: true
+              - name: purchase_url
+                label: Purchase URL
+                type: string
+                required: true
+              - name: featured
+                label: Featured
+                type: boolean
+          - name: books
+            label: Books
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title} - {price_eur} EUR"
+            fields:
+              - name: title
+                label: Title
+                type: string
+                required: true
+              - name: subtitle
+                label: Subtitle
+                type: string
+              - name: price_eur
+                label: Price EUR
+                type: string
+                required: true
+              - name: price_bgn
+                label: Price BGN
+                type: string
+                required: true
+              - name: purchase_url
+                label: Purchase URL
+                type: string
+                required: true
+              - name: image
+                label: Image
+                type: image
+          - name: consultations
+            label: Consultations and services
+            type: object
+            fields:
+              - name: package_title
+                label: Package title
+                type: string
+                required: true
+              - name: package_price_eur
+                label: Package price EUR
+                type: string
+                required: true
+              - name: package_price_bgn
+                label: Package price BGN
+                type: string
+              - name: services
+                label: Single services
+                type: object
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{title} - {price_eur} EUR"
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: price_eur
+                    label: Price EUR
+                    type: string
+                    required: true
+
+      - name: homepage
+        label: Homepage content
+        type: file
+        path: data/homepage.yml
+        format: yaml
+        fields:
+          - name: hero
+            label: Hero
+            type: object
+            fields:
+              - name: badge
+                label: Badge
+                type: string
+              - name: title
+                label: Title
+                type: string
+                required: true
+              - name: subtitle
+                label: Subtitle
+                type: text
+              - name: text
+                label: Body text
+                type: text
+              - name: image
+                label: Image
+                type: image
+          - name: for_whom
+            label: For whom cards
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                label: Title
+                type: string
+                required: true
+              - name: text
+                label: Text
+                type: text
+                required: true
+          - name: faq
+            label: FAQ
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{question}"
+            fields:
+              - name: question
+                label: Question
+                type: string
+                required: true
+              - name: answer
+                label: Answer
+                type: text
+                required: true
+          - name: testimonials
+            label: Testimonials
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{name}"
+            fields:
+              - name: name
+                label: Name
+                type: string
+                required: true
+              - name: text
+                label: Text
+                type: text
+                required: true
+
+  - name: html_pages
+    label: HTML pages
+    type: group
+    items:
+      - name: html_home
+        label: Homepage HTML
+        type: file
+        path: index.html
+        format: code
+      - name: html_books
+        label: Books HTML
+        type: file
+        path: knigi.html
+        format: code
+      - name: html_consultations
+        label: Consultations HTML
+        type: file
+        path: konsultatsii.html
+        format: code
+      - name: html_birth
+        label: Birth with us HTML
+        type: file
+        path: razhdane-s-nas.html
+        format: code
+      - name: html_styles
+        label: Styles CSS
+        type: file
+        path: styles.css
+        format: code
