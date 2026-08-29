@@ -32,7 +32,9 @@ def replace_main(filename: str, html_block: str) -> None:
     path.write_text(result, encoding="utf-8")
 
 
-def paragraphs(items: list[str], *, css: str = "margin-bottom:20px;line-height:1.7;", raw: bool = False) -> str:
+def paragraphs(items: list[str] | str, *, css: str = "margin-bottom:20px;line-height:1.7;", raw: bool = False) -> str:
+    if isinstance(items, str):
+        return f'        <div style="{css}">{rich(items) if raw else rich(items)}</div>'
     lines = []
     for index, item in enumerate(items):
         style = css if index < len(items) - 1 else re.sub(r"margin-bottom:\s*\d+px;", "margin-bottom:0;", css)
@@ -41,7 +43,9 @@ def paragraphs(items: list[str], *, css: str = "margin-bottom:20px;line-height:1
     return "\n".join(lines)
 
 
-def hero_paragraphs(items: list[str]) -> str:
+def hero_paragraphs(items: list[str] | str) -> str:
+    if isinstance(items, str):
+        return f'        <div class="hero__text">{rich(items)}</div>'
     return "\n".join(f'        <p class="hero__text">{text(item)}</p>' for item in items)
 
 
@@ -166,7 +170,7 @@ def render_books_page(data: dict) -> str:
 
 def render_consultations_page(data: dict, pricing: dict) -> str:
     hero = data["hero"]
-    intro = "".join(f"<p>{esc(item)}</p>" for item in hero.get("intro", []))
+    intro = rich(hero.get("intro"))
     package_items = "".join(f"<li>{esc(item)}</li>" for item in data["package"].get("items", []))
     services = "".join(
         f"<li><span>{esc(item.get('title'))}</span><strong>{esc(item.get('price_eur'))} €</strong></li>"

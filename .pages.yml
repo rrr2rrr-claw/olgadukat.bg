@@ -561,9 +561,8 @@ content:
                 label: Title
                 type: string
               - name: intro
-                label: Intro paragraphs
-                type: text
-                list: true
+                label: Intro
+                type: rich-text
               - name: image
                 label: Image
                 type: image
@@ -670,9 +669,8 @@ content:
                 label: Image alt
                 type: string
               - name: paragraphs
-                label: Paragraphs HTML
-                type: text
-                list: true
+                label: Text
+                type: rich-text
               - name: button
                 label: Button
                 type: string
@@ -693,9 +691,8 @@ content:
                 label: Image alt
                 type: string
               - name: paragraphs
-                label: Paragraphs
-                type: text
-                list: true
+                label: Text
+                type: rich-text
           - name: pricing
             label: Pricing
             type: object
@@ -767,9 +764,8 @@ content:
                 label: Image alt
                 type: string
               - name: paragraphs
-                label: Paragraphs HTML
-                type: text
-                list: true
+                label: Text
+                type: rich-text
           - name: team
             label: Team
             type: object
