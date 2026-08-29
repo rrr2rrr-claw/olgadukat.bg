@@ -81,7 +81,7 @@ content:
                 required: true
               - name: description
                 label: Description
-                type: text
+                type: rich-text
               - name: price_eur
                 label: Price EUR
                 type: string
@@ -191,10 +191,10 @@ content:
                 required: true
               - name: subtitle
                 label: Subtitle
-                type: text
+                type: rich-text
               - name: text
                 label: Body text
-                type: text
+                type: rich-text
               - name: image
                 label: Image
                 type: image
@@ -228,7 +228,7 @@ content:
                 required: true
               - name: text
                 label: Text
-                type: text
+                type: rich-text
                 required: true
           - name: about
             label: About Olga
@@ -245,7 +245,7 @@ content:
                 type: string
               - name: text
                 label: Text after name
-                type: text
+                type: rich-text
               - name: image
                 label: Image
                 type: image
@@ -271,7 +271,7 @@ content:
                 type: string
               - name: description
                 label: Description
-                type: text
+                type: rich-text
               - name: modules
                 label: Modules
                 type: object
@@ -306,7 +306,7 @@ content:
             fields:
               - name: text
                 label: Text
-                type: text
+                type: rich-text
               - name: author
                 label: Author
                 type: string
@@ -321,8 +321,8 @@ content:
                 label: Title
                 type: string
               - name: special
-                label: Special note HTML
-                type: text
+                label: Special note
+                type: rich-text
           - name: book_teaser
             label: Books section
             type: object
@@ -392,7 +392,7 @@ content:
                 required: true
               - name: answer
                 label: Answer
-                type: text
+                type: rich-text
                 required: true
           - name: faq_title
             label: FAQ title
@@ -421,7 +421,7 @@ content:
                 type: string
               - name: text
                 label: Text
-                type: text
+                type: rich-text
                 required: true
           - name: final_cta
             label: Final CTA
@@ -455,7 +455,7 @@ content:
                 type: string
               - name: intro
                 label: Intro
-                type: text
+                type: rich-text
           - name: books
             label: Books
             type: object
@@ -481,13 +481,13 @@ content:
                 type: string
               - name: quote
                 label: Quote
-                type: text
+                type: rich-text
               - name: lead
                 label: Lead text
-                type: text
+                type: rich-text
               - name: text
                 label: Body text
-                type: text
+                type: rich-text
               - name: image
                 label: Image
                 type: image
@@ -525,10 +525,10 @@ content:
                 type: image
               - name: text
                 label: Text
-                type: text
+                type: rich-text
               - name: quote
                 label: Quote
-                type: text
+                type: rich-text
               - name: tags
                 label: Tags
                 type: string
@@ -612,7 +612,7 @@ content:
                 type: string
               - name: subtitle
                 label: Subtitle
-                type: text
+                type: rich-text
               - name: image
                 label: Image
                 type: image
@@ -632,7 +632,7 @@ content:
                     type: string
                   - name: bio
                     label: Bio
-                    type: text
+                    type: rich-text
           - name: cta
             label: CTA
             type: object
@@ -642,7 +642,7 @@ content:
                 type: string
               - name: subtitle
                 label: Subtitle
-                type: text
+                type: rich-text
               - name: button
                 label: Button
                 type: string
@@ -782,7 +782,7 @@ content:
                 type: string
               - name: subtitle
                 label: Subtitle
-                type: text
+                type: rich-text
               - name: image
                 label: Image
                 type: image
@@ -802,7 +802,7 @@ content:
                     type: string
                   - name: bio
                     label: Bio
-                    type: text
+                    type: rich-text
           - name: cta
             label: CTA
             type: object
@@ -812,37 +812,7 @@ content:
                 type: string
               - name: subtitle
                 label: Subtitle
-                type: text
+                type: rich-text
               - name: button
                 label: Button
                 type: string
-
-  - name: html_pages
-    label: HTML pages
-    type: group
-    items:
-      - name: html_home
-        label: Homepage HTML
-        type: file
-        path: index.html
-        format: code
-      - name: html_books
-        label: Books HTML
-        type: file
-        path: knigi.html
-        format: code
-      - name: html_consultations
-        label: Consultations HTML
-        type: file
-        path: konsultatsii.html
-        format: code
-      - name: html_birth
-        label: Birth with us HTML
-        type: file
-        path: razhdane-s-nas.html
-        format: code
-      - name: html_styles
-        label: Styles CSS
-        type: file
-        path: styles.css
-        format: code

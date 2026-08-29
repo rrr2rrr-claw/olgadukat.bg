@@ -7,7 +7,7 @@ import sys
 
 import yaml
 
-from build_homepage import esc, image_src, text
+from build_homepage import esc, image_src, rich, text
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 
@@ -52,7 +52,7 @@ def team_cards(team: dict) -> str:
         members.append(f"""      <div class="testimonial-card" data-animate="fade-up" style="{margin}color: #151521;">
         <h3 style="font-family: 'Lora', serif; font-size: 1.2rem; margin-bottom: 12px; color: #151521;">{esc(member.get("name"))}</h3>
         <p style="color: #666; margin-bottom: 12px; font-size: 0.9rem;">{esc(member.get("role"))}</p>
-        <p style="line-height: 1.7; color: #151521;">{esc(member.get("bio"))}</p>
+        <div style="line-height: 1.7; color: #151521;">{rich(member.get("bio"))}</div>
       </div>""")
     return f"""<!-- ЕКИП -->
 <section class="about" id="team" style="padding: 80px 0;">
@@ -78,7 +78,7 @@ def render_books_page(data: dict) -> str:
     <div class="container text-center">
       <span class="badge" data-animate="fade-up">{esc(hero.get("badge"))}</span>
       <h1 class="section-title" data-animate="fade-up">{esc(hero.get("title"))}</h1>
-      <p class="page-intro" data-animate="fade-up">{esc(hero.get("intro"))}</p>
+      <div class="page-intro" data-animate="fade-up">{rich(hero.get("intro"))}</div>
     </div>
   </section>"""]
     for index, book in enumerate(data.get("books", [])):
@@ -92,10 +92,10 @@ def render_books_page(data: dict) -> str:
         image_animate = "fade-right" if dark else "fade-left"
         text_bits = []
         if book.get("quote"):
-            text_bits.append(f'          <blockquote>„{esc(book.get("quote"))}”</blockquote>')
+            text_bits.append(f'          <blockquote>„{rich(book.get("quote"))}”</blockquote>')
         if book.get("lead"):
-            text_bits.append(f'          <p class="book-feature__lead">{esc(book.get("lead"))}</p>')
-        text_bits.append(f'          <p>{esc(book.get("text"))}</p>')
+            text_bits.append(f'          <div class="book-feature__lead">{rich(book.get("lead"))}</div>')
+        text_bits.append(f'          <div>{rich(book.get("text"))}</div>')
         content = f"""        <div class="book-feature__content" data-animate="{content_animate}">
           <span class="{badge_class}">{esc(book.get("badge"))}</span>
           <h2>{esc(book.get("title"))}</h2>
@@ -136,8 +136,8 @@ def render_books_page(data: dict) -> str:
         <div class="books-author__content">
           <span class="badge">{esc(author.get("badge"))}</span>
           <h2>{esc(author.get("title"))}</h2>
-          <p>{esc(author.get("text"))}</p>
-          <blockquote class="books-author__quote">„{esc(author.get("quote"))}”</blockquote>
+          <div>{rich(author.get("text"))}</div>
+          <blockquote class="books-author__quote">„{rich(author.get("quote"))}”</blockquote>
           <div class="books-author__tags">
 {tags}
           </div>
@@ -154,7 +154,7 @@ def render_books_page(data: dict) -> str:
   <section class="books-buy-cta" data-animate="zoom-in">
     <div class="container text-center">
       <h2 class="section-title">{esc(cta.get("title"))}</h2>
-      <p class="section-subtitle">{esc(cta.get("subtitle"))}</p>
+      <div class="section-subtitle">{rich(cta.get("subtitle"))}</div>
       <div class="books-buy-cta__buttons">
 {buttons}
       </div>
@@ -179,7 +179,7 @@ def render_consultations_page(data: dict, pricing: dict) -> str:
 <div class="testimonial-card" data-animate="fade-up"><h2 class="section-title" style="font-size:1.6rem;">{esc(data["services"].get("title"))}</h2><ul class="service-list">{services}</ul></div>
 </div></div></section>
 {team_cards(data["team"])}
-<section class="final-cta" data-animate="zoom-in"><div class="container"><h2 class="section-title">{esc(cta.get("title"))}</h2><p class="section-subtitle">{esc(cta.get("subtitle"))}</p><a href="#" class="btn btn--white" onclick="openContactModal();return false;">{esc(cta.get("button"))}</a></div></section>"""
+<section class="final-cta" data-animate="zoom-in"><div class="container"><h2 class="section-title">{esc(cta.get("title"))}</h2><div class="section-subtitle">{rich(cta.get("subtitle"))}</div><a href="#" class="btn btn--white" onclick="openContactModal();return false;">{esc(cta.get("button"))}</a></div></section>"""
 
 
 def price_rows(items: list[dict], pad: int = 12) -> str:
@@ -261,7 +261,7 @@ def render_birth_page(data: dict) -> str:
 </section>
 {team_cards(data["team"])}
 
-<section class="final-cta" data-animate="zoom-in"><div class="container"><h2 class="section-title">{esc(cta.get("title"))}</h2><p class="section-subtitle">{esc(cta.get("subtitle"))}</p><a href="#" class="btn btn--white" onclick="openContactModal();return false;">{esc(cta.get("button"))}</a></div></section>"""
+<section class="final-cta" data-animate="zoom-in"><div class="container"><h2 class="section-title">{esc(cta.get("title"))}</h2><div class="section-subtitle">{rich(cta.get("subtitle"))}</div><a href="#" class="btn btn--white" onclick="openContactModal();return false;">{esc(cta.get("button"))}</a></div></section>"""
 
 
 def main() -> int:

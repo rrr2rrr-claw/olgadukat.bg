@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import html
+from html.parser import HTMLParser
 import pathlib
 import re
 import sys
@@ -22,6 +23,41 @@ def esc(value: object) -> str:
 
 def text(value: object) -> str:
     return "" if value is None else str(value)
+
+
+class RichTextSanitizer(HTMLParser):
+    ALLOWED_TAGS = {"p", "br", "strong", "b", "em", "i", "a", "ul", "ol", "li"}
+    ALLOWED_ATTRS = {"a": {"href", "title", "target"}}
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.parts: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag not in self.ALLOWED_TAGS:
+            return
+        cleaned = []
+        for name, value in attrs:
+            if name not in self.ALLOWED_ATTRS.get(tag, set()) or value is None:
+                continue
+            if name == "href" and value.strip().lower().startswith(("javascript:", "data:")):
+                continue
+            cleaned.append(f'{name}="{html.escape(value, quote=True)}"')
+        suffix = f" {' '.join(cleaned)}" if cleaned else ""
+        self.parts.append(f"<{tag}{suffix}>")
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag in self.ALLOWED_TAGS and tag != "br":
+            self.parts.append(f"</{tag}>")
+
+    def handle_data(self, data: str) -> None:
+        self.parts.append(html.escape(data, quote=False))
+
+
+def rich(value: object) -> str:
+    sanitizer = RichTextSanitizer()
+    sanitizer.feed(text(value))
+    return "".join(sanitizer.parts)
 
 
 def image_src(value: object) -> str:
@@ -46,8 +82,8 @@ def render_hero(data: dict, pricing: dict) -> str:
       <div class="hero__content">
         <span class="hero__badge">{esc(hero.get("badge"))}</span>
         <h1>{esc(hero.get("title"))}</h1>
-        <p class="hero__sub">{esc(hero.get("subtitle"))}</p>
-        <p class="hero__text">{esc(hero.get("text"))}</p>
+        <div class="hero__sub">{rich(hero.get("subtitle"))}</div>
+        <div class="hero__text">{rich(hero.get("text"))}</div>
         <div class="hero__buttons">
           <a href="{esc(full_course.get("purchase_url"))}" class="btn btn--primary" target="_blank">{esc(hero.get("primary_button"))}</a>
           <a href="#program" class="btn btn--outline">{esc(hero.get("secondary_button"))}</a>
@@ -84,7 +120,7 @@ def render_for_whom(data: dict) -> str:
           {ICONS[index] if index < len(ICONS) else ICONS[-1]}
         </div>
         <h3>{esc(item.get("title"))}</h3>
-        <p>{esc(item.get("text"))}</p>
+        <div>{rich(item.get("text"))}</div>
       </div>""")
     return f"""<section class="for-whom" id="for-whom">
   <div class="container text-center">
@@ -111,7 +147,7 @@ def render_about(data: dict) -> str:
       <div class="about__content" data-animate="fade-right">
         <span class="badge badge--light">{esc(about.get("badge"))}</span>
         <h2 class="section-title">{esc(about.get("title"))}</h2>
-        <p class="about__text"><strong>{esc(about.get("name"))}</strong> {esc(about.get("text"))}</p>
+        <div class="about__text"><strong>{esc(about.get("name"))}</strong> {rich(about.get("text"))}</div>
         <div class="about__quals">
 {quals}
         </div>
@@ -148,7 +184,7 @@ def render_program(data: dict) -> str:
     <span class="badge" data-animate="fade-up">{esc(program.get("badge"))}</span>
     <h2 class="section-title" data-animate="fade-up">{esc(program.get("title"))}</h2>
     <p class="section-subtitle" data-animate="fade-up">{esc(program.get("subtitle"))}</p>
-    <p class="section-desc" data-animate="fade-up">{esc(program.get("description"))}</p>
+    <div class="section-desc" data-animate="fade-up">{rich(program.get("description"))}</div>
 
     <div class="program__modules" data-stagger>
 {chr(10).join(modules)}
@@ -201,7 +237,7 @@ def render_pricing(homepage: dict, pricing: dict) -> str:
 {chr(10).join(cards)}
     </div>
     <div class="pricing__special">
-      <p>{text(section.get("special"))}</p>
+      <div>{rich(section.get("special"))}</div>
     </div>
   </div>
 </section>"""
@@ -221,7 +257,7 @@ def render_books(data: dict) -> str:
       </div>
       <div class="book-teaser__content" data-animate="fade-right">
         <a href="{esc(item.get("detail_url"))}" style="text-decoration: none; color: inherit;"><h3 class="section-title" style="font-size: 1.8rem;">{esc(item.get("title"))}</h3></a>
-{subtitle}        <p class="book-teaser__text">{esc(item.get("text"))}</p>
+{subtitle}        <div class="book-teaser__text">{rich(item.get("text"))}</div>
         <p class="book-teaser__price">{esc(item.get("price"))}</p>
         <a href="{esc(item.get("purchase_url"))}" class="btn btn--primary" target="_blank">{esc(item.get("buy_button"))}</a>
         <a href="{esc(item.get("detail_url"))}" class="btn btn--white" style="margin-left: 12px;">{esc(item.get("detail_button"))}</a>
@@ -242,7 +278,7 @@ def render_testimonials(data: dict) -> str:
     for item in data.get("testimonials", []):
         cards.append(f"""      <div class="testimonial-card" data-animate="fade-up">
         <div class="testimonial-card__stars">{esc(item.get("stars", "★★★★★"))}</div>
-        <p class="testimonial-card__text">„{esc(item.get("text"))}”</p>
+        <div class="testimonial-card__text">„{rich(item.get("text"))}”</div>
         <p class="testimonial-card__author">— {esc(item.get("name"))}</p>
       </div>""")
     return f"""<section class="testimonials" id="testimonials">
@@ -264,7 +300,7 @@ def render_faq(data: dict) -> str:
     for item in data.get("faq", []):
         items.append(f"""      <div class="faq__item" data-animate="fade-up">
         <button class="faq__question">{esc(item.get("question"))}</button>
-        <div class="faq__answer"><p>{esc(item.get("answer"))}</p></div>
+        <div class="faq__answer">{rich(item.get("answer"))}</div>
       </div>""")
     return f"""<section class="faq" id="faq">
   <div class="container text-center">
