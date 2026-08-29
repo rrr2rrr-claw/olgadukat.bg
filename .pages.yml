@@ -437,6 +437,386 @@ content:
                 label: Button
                 type: string
 
+      - name: books_page
+        label: Books page
+        type: file
+        path: data/books.yml
+        format: yaml
+        fields:
+          - name: hero
+            label: Hero
+            type: object
+            fields:
+              - name: badge
+                label: Badge
+                type: string
+              - name: title
+                label: Title
+                type: string
+              - name: intro
+                label: Intro
+                type: text
+          - name: books
+            label: Books
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: id
+                label: Anchor ID
+                type: string
+              - name: theme
+                label: Theme
+                type: string
+              - name: badge
+                label: Badge
+                type: string
+              - name: title
+                label: Title
+                type: string
+              - name: meta
+                label: Meta
+                type: string
+              - name: quote
+                label: Quote
+                type: text
+              - name: lead
+                label: Lead text
+                type: text
+              - name: text
+                label: Body text
+                type: text
+              - name: image
+                label: Image
+                type: image
+              - name: image_alt
+                label: Image alt
+                type: string
+              - name: price
+                label: Price
+                type: string
+              - name: purchase_url
+                label: Purchase URL
+                type: string
+              - name: button
+                label: Button
+                type: string
+              - name: inside_title
+                label: Inside title
+                type: string
+              - name: inside_items
+                label: Inside items
+                type: string
+                list: true
+          - name: author
+            label: Author block
+            type: object
+            fields:
+              - name: badge
+                label: Badge
+                type: string
+              - name: title
+                label: Title
+                type: string
+              - name: image
+                label: Image
+                type: image
+              - name: text
+                label: Text
+                type: text
+              - name: quote
+                label: Quote
+                type: text
+              - name: tags
+                label: Tags
+                type: string
+                list: true
+          - name: cta
+            label: CTA
+            type: object
+            fields:
+              - name: title
+                label: Title
+                type: string
+              - name: subtitle
+                label: Subtitle
+                type: string
+
+      - name: consultations_page
+        label: Consultations page
+        type: file
+        path: data/consultations.yml
+        format: yaml
+        fields:
+          - name: hero
+            label: Hero
+            type: object
+            fields:
+              - name: badge
+                label: Badge
+                type: string
+              - name: title
+                label: Title
+                type: string
+              - name: intro
+                label: Intro paragraphs
+                type: text
+                list: true
+              - name: image
+                label: Image
+                type: image
+              - name: image_alt
+                label: Image alt
+                type: string
+              - name: package_line
+                label: Package line
+                type: string
+              - name: package_price
+                label: Package price
+                type: string
+              - name: location
+                label: Location
+                type: string
+              - name: button
+                label: Button
+                type: string
+          - name: package
+            label: Package includes
+            type: object
+            fields:
+              - name: title
+                label: Title
+                type: string
+              - name: items
+                label: Items
+                type: string
+                list: true
+          - name: services
+            label: Services title
+            type: object
+            fields:
+              - name: title
+                label: Title
+                type: string
+          - name: team
+            label: Team
+            type: object
+            fields:
+              - name: badge
+                label: Badge
+                type: string
+              - name: title
+                label: Title
+                type: string
+              - name: subtitle
+                label: Subtitle
+                type: text
+              - name: image
+                label: Image
+                type: image
+              - name: members
+                label: Members
+                type: object
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{name}"
+                fields:
+                  - name: name
+                    label: Name
+                    type: string
+                  - name: role
+                    label: Role
+                    type: string
+                  - name: bio
+                    label: Bio
+                    type: text
+          - name: cta
+            label: CTA
+            type: object
+            fields:
+              - name: title
+                label: Title
+                type: string
+              - name: subtitle
+                label: Subtitle
+                type: text
+              - name: button
+                label: Button
+                type: string
+
+      - name: birth_page
+        label: Birth page
+        type: file
+        path: data/birth.yml
+        format: yaml
+        fields:
+          - name: hero
+            label: Hero
+            type: object
+            fields:
+              - name: badge
+                label: Badge
+                type: string
+              - name: title
+                label: Title
+                type: string
+              - name: image
+                label: Image
+                type: image
+              - name: image_alt
+                label: Image alt
+                type: string
+              - name: paragraphs
+                label: Paragraphs HTML
+                type: text
+                list: true
+              - name: button
+                label: Button
+                type: string
+          - name: care
+            label: Care section
+            type: object
+            fields:
+              - name: badge
+                label: Badge
+                type: string
+              - name: title
+                label: Title
+                type: string
+              - name: image
+                label: Image
+                type: image
+              - name: image_alt
+                label: Image alt
+                type: string
+              - name: paragraphs
+                label: Paragraphs
+                type: text
+                list: true
+          - name: pricing
+            label: Pricing
+            type: object
+            fields:
+              - name: badge
+                label: Badge
+                type: string
+              - name: title
+                label: Title
+                type: string
+              - name: subtitle
+                label: Subtitle
+                type: string
+              - name: packages_title
+                label: Packages title
+                type: string
+              - name: packages
+                label: Packages
+                type: object
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{title} - {price}"
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                  - name: price
+                    label: Price
+                    type: string
+              - name: includes_title
+                label: Includes title
+                type: string
+              - name: includes
+                label: Includes
+                type: string
+                list: true
+              - name: extra_title
+                label: Extra title
+                type: string
+              - name: extras
+                label: Extras
+                type: object
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{title} - {price}"
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                  - name: price
+                    label: Price
+                    type: string
+          - name: conditions
+            label: Conditions
+            type: object
+            fields:
+              - name: badge
+                label: Badge
+                type: string
+              - name: title
+                label: Title
+                type: string
+              - name: image
+                label: Image
+                type: image
+              - name: image_alt
+                label: Image alt
+                type: string
+              - name: paragraphs
+                label: Paragraphs HTML
+                type: text
+                list: true
+          - name: team
+            label: Team
+            type: object
+            fields:
+              - name: badge
+                label: Badge
+                type: string
+              - name: title
+                label: Title
+                type: string
+              - name: subtitle
+                label: Subtitle
+                type: text
+              - name: image
+                label: Image
+                type: image
+              - name: members
+                label: Members
+                type: object
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{name}"
+                fields:
+                  - name: name
+                    label: Name
+                    type: string
+                  - name: role
+                    label: Role
+                    type: string
+                  - name: bio
+                    label: Bio
+                    type: text
+          - name: cta
+            label: CTA
+            type: object
+            fields:
+              - name: title
+                label: Title
+                type: string
+              - name: subtitle
+                label: Subtitle
+                type: text
+              - name: button
+                label: Button
+                type: string
+
   - name: html_pages
     label: HTML pages
     type: group
